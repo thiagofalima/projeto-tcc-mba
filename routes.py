@@ -16,9 +16,11 @@ users = {
 @pages.route('/register', methods=['GET', 'POST'])
 def register():
 
-    if request.method == "POST":
+    if request.method == 'POST':
+        session['user'] = request.form.get('user')
+        session['password'] = request.form.get('user')
         user = session["user"]
-        password = pbkdf2_sha256(session["password"])
+        password = pbkdf2_sha256.hash(session["password"])
         users[user] = password
         flash("Cadastro realizado com sucesso!")
         print(users)
@@ -32,7 +34,7 @@ def register():
 def login():
 
     if request.method == 'POST':
-        pass
+        return redirect(url_for('pages.home'))
 
     return render_template('login.html', title='Jacqueline Agostini - Login')
 
