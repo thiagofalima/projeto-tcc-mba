@@ -1,0 +1,173 @@
+/* Variables */
+
+
+:root {
+
+    /* cores */
+
+    --verde-escuro: #35522b;
+    --verde-claro: #799567;
+    --marrom-claro: #ccb494;
+    --marrom-escuro: #af8440;
+    --marrom-padrao: #c8a980;
+    --bege-claro: #f0eada;
+
+    /* fontes */
+    --font-link: "Montserrat", sans-serif;
+    --font-cursiva: "Qwitcher Grypen", cursive;
+}
+
+body {
+    line-height: 1.5em;
+}
+
+.header {
+    background: var(--verde-escuro);
+    display: flex;
+    color: var(--bege-claro);
+    font-family: var(--font-link);
+}
+
+.nav {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    color: inherit;
+
+    font-family: inherit;
+}
+
+.nav__icon {
+    padding: 5px 5px;
+    color: inherit;
+    text-decoration: none;
+
+    font-family: inherit;
+}
+
+.nav__link {
+    color: inherit;
+    font-family: inherit;
+    font-size: 1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin: 0.3em 2em;
+}
+
+.nav__link:hover {
+    box-shadow: 0 0.3em 0 0 var(--bege-claro);
+    transition: 0.1s ease-in-out;
+}
+
+.nav__link--active {
+    box-shadow: 0 0.3em 0 0 var(--bege-claro);
+}
+
+
+.main {
+    max-width: 80%;
+    margin: 1em auto;
+    padding: 1em;
+    font-family: var(--font-link)
+}
+
+.main__logotipo {
+    background-color: var(--bege-claro);
+}
+
+.logotipo__photo {
+    margin: 0 auto;
+    height: 10rem;
+}
+
+.container {
+    margin: 1em auto;
+    padding: 1em;
+    display: flex;
+    gap: 1.5em;
+}
+
+
+.container__left {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+    font-family: inherit;
+}
+
+.container__left--title {
+    font-size: 30px;
+    font-family: inherit;
+    color: var(--marrom-escuro)
+}
+
+.container__left--text {
+    font-size: 20px;
+}
+
+.container__right--photo {
+    border-radius: 20%;
+    box-shadow: 0.5em 0.5em var(--verde-claro);
+}
+
+.container__queridinhos {
+    margin-top: 2.5em;
+    color: var(--marrom-escuro);
+    display: flex;
+    flex-direction: column;
+}
+
+.container__queridinhos--title {
+    font-family: var(--font-cursiva);
+    font-size: 3em;
+    color: inherit;
+}
+
+.container__queridinhos--items {
+    margin-top: 3em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 2em;
+    align-items: center;
+    font-family: inherit;
+    text-align: center;
+}
+
+.queridinhos__link {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    border: 3px solid var(--verde-escuro)
+}
+
+.queridinhos__link--button {
+    width: 10em;
+    height: 3em;
+    border: none;
+    border-radius: 15%;
+    background-color: var(--bege-claro);
+    color: var(--verde-escuro);
+    margin-bottom: 1em;
+}
+
+.queridinhos__link--button:hover{
+    font-weight: bold;
+}
+
+.footer {
+    width: 100%;
+    position: relative;
+    margin-top: 100%;
+
+    padding: 1rem 0;
+
+    background: var(--verde-escuro);
+    color: var(--bege-claro);
+    text-align: center;
+}
+

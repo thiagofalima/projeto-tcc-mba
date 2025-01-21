@@ -1,0 +1,16 @@
+{% macro header(email) %}
+
+<header class="header">
+    <a class="nav__icon" href="{{ url_for('pages.home') }}">JA</a>
+    <nav class="nav">
+        <a href="{{ url_for('pages.beleza') }}" 
+        class="nav__link {{ 'nav__link--active' if request.path == url_for('pages.beleza') }}">Beleza</a>
+        <a href="{{ url_for('pages.estetica') }}" 
+        class="nav__link {{ 'nav__link--active' if request.path == url_for('pages.estetica') }}">Estética</a>
+        <a href="{{ url_for('pages.bem_estar') }}" 
+        class="nav__link {{ 'nav__link--active' if request.path == url_for('pages.bem_estar') }}">Bem-estar</a>
+    </nav>
+</header>
+
+{% endmacro %}
+
