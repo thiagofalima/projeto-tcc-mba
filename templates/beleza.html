@@ -1,5 +1,27 @@
 {% extends 'layout.html' %}
 
 {% block content %}
+<main class="main">
+    <div class="container__queridinhos">
+        <h3 class="container__queridinhos--title">
+        Beleza
+        </h3>
 
+        <div class="container__queridinhos--items">
+        {% for i in ['Limpeza de Péle', 'Depilação', 'Drenagem'] %}
+        <a href="" class="queridinhos__link">
+            <h4 class="queridinhos__titles">{{ i }}</h4>
+            <img src="{{ url_for('static', filename='assets/logotipo.png') }}" alt="">
+            <p class="queridinhos__link--text">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            </p>
+            <button class="queridinhos__link--button">
+            Agendar
+            </button>
+            {% endfor %}
+        </a>
+        </div>
+
+    </div>
+</main>
 {% endblock %}
