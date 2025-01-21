@@ -1,0 +1,55 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="main__logotipo">
+  <img class="logotipo__photo" src="{{ url_for('static', filename='assets/logotipo.png') }}"
+  alt="logotipo Jacqueline Agostini">
+</div>
+
+<main class="main">
+
+
+
+  <div class="container">
+
+    <div class="container__left">
+      <h3 class="container__left--title">Bem-vinda {{ nome }},</h3>
+      <p class="container__left--text">Conheça Jacqueline Agostini, uma esteticista dedicada e apaixonada por realçar a
+        beleza natural. Com um atendimento atencioso e técnicas avançadas, Jacqueline proporciona uma experiência única
+        e resultados incríveis, elevando sua autoestima e bem-estar.
+      </p>
+    </div>
+
+    <div class="container__right">
+      <img src="{{ url_for('static', filename='assets/foto_jacque.jpeg') }}" alt="Foto Da Jacqueline Agostini de Jaleco"
+        class="container__right--photo">
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="container__queridinhos">
+    <h3 class="container__queridinhos--title">
+      Queridinhos das Clientes
+    </h3>
+
+    <div class="container__queridinhos--items">
+      {% for i in range(3) %}
+      <a href="" class="queridinhos__link">
+        <h4>Titulo</h4>
+        <img src="" alt="">
+        <p class="queridinhos__link--text">
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+        </p>
+        <button class="queridinhos__link--button">
+          Detalhes
+        </button>
+        {% endfor %}
+      </a>
+    </div>
+
+  </div>
+
+</main>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block head %} 
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
+
+{% endblock %}
+
+{% block content %}
+
+    <main class="main">
+        <div class="form__container">
+            <form action="" class="form" method="POST">
+                <label for="Register" class="form__label">Register</label>
+                <input name="user" type="text" class="form__field" placeholder="Usuário">
+                <input name="password" type="password" class="form__field" placeholder="Senha">
+                <input type="password" class="form__field" placeholder="Confirmar Senha">
+                <input class="form__submit" name="submit" type="submit" value="Registrar">
+            </form>
+        </div>
+    </main>
+
+{% endblock %}

@@ -1,0 +1,22 @@
+
+.form__container {
+    margin: 0 auto;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+    padding: 1em;
+
+    border: 3px solid var(--verde-escuro);
+    background: var(--verde-claro);
+
+}
+
+label {
+    font-size: 1.5em;
+    color: var(--bege-claro);
+    text-align: center;
+}
