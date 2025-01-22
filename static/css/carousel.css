@@ -1,0 +1,36 @@
+
+#myCarousel {
+    background: var(--verde-escuro);
+    font-family: var(--font-link);
+
+    height: 10em;
+
+
+
+}
+
+.carousel-inner {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.carousel-control-next-icon {
+    color: var(--verde-escuro);
+}
+
+.visually-hidden {
+    color: var(--verde-escuro)
+}
+
+.feedback__cliente--nome
+{
+    color: var(--bege-claro);
+    font-size: 2em;
+}
+
+.feedback__cliente--texto {
+    color: var(--bege-claro);
+    
+    margin-bottom: 4em;
+}
