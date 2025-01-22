@@ -88,7 +88,7 @@ body {
     height: 3em;
     color: var(--bege-claro);
     background-color: var(--verde-claro);
-    border-radius: 40%;
+    border-radius: 50%;
 }
 
 .ig__link {
@@ -96,13 +96,24 @@ body {
     height: 3em;
     color: var(--bege-claro);
     background: var(--marrom-escuro);
-    border-radius: 70%;
+    border-radius: 50%;
 }
 
 .container__right--photo {
     border-radius: 10%;
     box-shadow: 0.5em 0.5em 1em var(--verde-claro);
     font-weight:bold;
+}
+
+@media screen and (min-width: 1000px){
+    .container__right--photo {
+        max-width: 300px;
+    }
+
+    .container__left--text {
+        font-size: 18px;
+        line-height: 1.5em;
+    }
 }
 
 .container__queridinhos {
@@ -168,7 +179,7 @@ body {
 .footer {
     width: 100%;
     position: relative;
-    margin-top: 100%;
+    bottom: 0%;
 
     padding: 1rem 0;
 
