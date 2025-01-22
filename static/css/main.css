@@ -117,10 +117,11 @@ body {
 }
 
 .container__queridinhos {
-    margin: 2.5em 0;
+    margin: 1em;
     display: flex;
     flex-direction: column;
-    color: var(--bege-claro)
+    color: var(--bege-claro);
+    margin-bottom: 3.5em;
 }
 
 .container__queridinhos--title {
@@ -131,7 +132,7 @@ body {
 }
 
 .container__queridinhos--items {
-    margin-top: 3em;
+    margin-top: 1em;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -162,7 +163,7 @@ body {
 }
 
 .queridinhos__link--button {
-    width: 7.5em;
+    width: 5em;
     height: 3em;
     border: none;
     background-color: var(--bege-claro);
@@ -179,7 +180,7 @@ body {
 .footer {
     width: 100%;
     position: relative;
-    bottom: 0;
+    bottom: 0%;
 
     padding: 1rem 0;
 
@@ -189,7 +190,7 @@ body {
 }
 
 .container__feedbacks {
-    margin-top: 3em;
+    margin: 1em auto;
 }
 
 .container__feedbacks--title {
