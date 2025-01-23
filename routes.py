@@ -1,5 +1,9 @@
-from flask import Blueprint, render_template, request, session, flash, redirect, url_for
+from flask import Blueprint, render_template, request, session, flash, redirect, url_for, current_app
 from passlib.hash import pbkdf2_sha256
+import uuid
+from forms import RegisterForm, LoginForm
+from models import Cliente, Agendamento
+import datetime
 
 pages = Blueprint('pages', __name__, 
                   template_folder='templates',
@@ -16,27 +20,54 @@ users = {
 @pages.route('/register', methods=['GET', 'POST'])
 def register():
 
-    if request.method == 'POST':
-        session['user'] = request.form.get('user')
-        session['password'] = request.form.get('user')
-        user = session["user"]
-        password = pbkdf2_sha256.hash(session["password"])
-        users[user] = password
-        flash("Cadastro realizado com sucesso!")
-        print(users)
-
+    if session.get('email'):
         return redirect(url_for('pages.home'))
 
+    form = RegisterForm()
 
-    return render_template('register.html', title='Jacqueline Agostini - Registrar' )
+    if form.validate_on_submit():
+        cliente = Cliente(
+            _id=uuid.uuid4().hex,
+            email=form.email.data,
+            password=pbkdf2_sha256.hash(form.password.data),
+            date=datetime.datetime.now()
+        )
+
+        # DB insertion here
+
+        flash('Carastro realizado comn sucesso!', 'success')
+        return redirect(url_for('pages.login'))
+
+    return render_template('register.html',
+                            title='Jacqueline Agostini - Registrar',
+                                form=form )
 
 @pages.route('/login', methods=['GET', 'POST'])
 def login():
 
-    if request.method == 'POST':
+    if session.get('email'):
         return redirect(url_for('pages.home'))
+    
+    form = LoginForm()
 
-    return render_template('login.html', title='Jacqueline Agostini - Login')
+    if form.validate_on_submit():
+        # DB verification
+        cliente_data = {}
+        if not cliente_data:
+            flash('Usuário ou senha incorretos!', 'danger')
+            return redirect(url_for('pages.login'))
+
+        cliente = Cliente(**cliente_data)
+
+        if cliente and pbkdf2_sha256.verify(form.password.data, cliente.password):
+            session['cliente_id'] = cliente._id
+            session['email'] = cliente.email
+
+            return redirect(url_for('pages.home'))
+        flash('Usuário ou senha incorretos!', 'danger')
+
+    return render_template('login.html', title='Jacqueline Agostini - Login',
+                           form=form)
 
 procedimentos_beleza = {
     'Design de Sobrancelhas': '',

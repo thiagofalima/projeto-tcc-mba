@@ -14,7 +14,7 @@ class RegisterForm(FlaskForm):
                                                           EqualTo('password',
                                                                   message='A senha digitda deve ser igual a senha digitada acima.')])
     
-
+    submit = SubmitField('Cadastrar')
 
 class LoginForm(FlaskForm):
 

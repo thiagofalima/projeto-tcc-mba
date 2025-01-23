@@ -126,7 +126,9 @@ body {
 
 .container__queridinhos--title {
     font-family: var(--font-cursiva);
-    font-size: 3em;
+    font-size: 4em;
+    font-weight: bold;
+
     color: var(--marrom-escuro);
 
 }
@@ -195,6 +197,8 @@ body {
 
 .container__feedbacks--title {
     font-family: var(--font-cursiva);
-    font-size: 3em;
+    font-size: 4em;
+    font-weight: bold;
+
     color: var(--marrom-escuro);
 }

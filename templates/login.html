@@ -1,3 +1,5 @@
+{% from 'macros/fields.html' import render_text_field %}
+
 {% extends 'layout.html' %}
 
 {% block head %} 
@@ -7,21 +9,27 @@
 {% endblock %}
 
 {% block content %}
+<main class="main">
+<form name="login" method="post" novalidate class="form">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {%- for category, message in messages %}
+            <span class="form__flash form__flash--{{category}}"> {{ message }}</span>
+        {% endfor %}
+    {% endwith %}
 
-    <main class="main">
         <div class="form__container">
-            <form action="" class="form" method="POST">
-                <label for="Register" class="form__label">Login</label>
-                <input name="user" type="text" class="form__field" placeholder="Usuário">
-                <input name="password" type="password" class="form__field" placeholder="Senha">
-                <input class="form__submit" name="submit" type="submit" value="Entrar">
+            {{ form.hidden_tag() }}
+
+            {{ render_text_field(form.email) }}
+            {{ render_text_field(form.password) }}
+
+            <div>
+                {{ form.submit(class_="button button--form") }}
+            </div>
+        </div>
                 <p>Ainda não se cadastrou?<a class="register__link" href="{{ url_for('pages.register') }}"> Clique aqui!</a></p>
             </form>
-        
         </div>
-
-
-
-    </main>
+</main>
 
 {% endblock %}
