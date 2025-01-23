@@ -39,6 +39,9 @@ def login():
     return render_template('login.html', title='Jacqueline Agostini - Login')
 
 procedimentos_beleza = {
+    'Design de Sobrancelhas': '',
+    'Brow Lamination': '',
+    'Lash Lifting': ''
 
 }
 
@@ -47,9 +50,12 @@ def beleza():
     return render_template('beleza.html', title='Jacqueline Agostini - Beleza',
                            procedimentos_beleza=procedimentos_beleza)
 
-procedimentos_estetica = {
 
-}
+
+procedimentos_estetica = {
+    'Depilação a Laser': '', 
+    'Limpeza de Pele': '', 
+    'Microagulhamento': ''}
 
 @pages.route('/estetica')
 def estetica():
@@ -57,7 +63,9 @@ def estetica():
                            procedimentos_estetica=procedimentos_estetica)
 
 procedimentos_em_estar = {
-
+    'Drenagem Linfática': '',
+    'Massagem Relaxante': '',
+    'Reflexologia': ''
 }
 
 @pages.route('/bem-estar')
