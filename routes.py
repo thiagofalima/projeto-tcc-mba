@@ -1,8 +1,8 @@
 from flask import Blueprint, render_template, request, session, flash, redirect, url_for, current_app
 from passlib.hash import pbkdf2_sha256
 import uuid
-from forms import RegisterForm, LoginForm
-from models import Cliente, Agendamento
+from forms import RegisterForm, LoginForm, ScheduleForm
+from models import Cliente, Agendamento, Procedimento
 import datetime
 
 pages = Blueprint('pages', __name__, 
@@ -21,32 +21,33 @@ users = {
 def register():
 
     if session.get('email'):
-        return redirect(url_for('pages.home'))
+        return redirect(url_for('.home'))
 
     form = RegisterForm()
 
     if form.validate_on_submit():
         cliente = Cliente(
             _id=uuid.uuid4().hex,
+            name=form.name.data,
             email=form.email.data,
             password=pbkdf2_sha256.hash(form.password.data),
-            date=datetime.datetime.now()
+            register_date=datetime.datetime.now()
         )
 
         # DB insertion here
 
-        flash('Carastro realizado comn sucesso!', 'success')
+        flash('Cadastro realizado com sucesso!', 'success')
         return redirect(url_for('pages.login'))
 
     return render_template('register.html',
                             title='Jacqueline Agostini - Registrar',
-                                form=form )
+                                form=form)
 
 @pages.route('/login', methods=['GET', 'POST'])
 def login():
 
     if session.get('email'):
-        return redirect(url_for('pages.home'))
+        return redirect(url_for('.home'))
     
     form = LoginForm()
 
@@ -104,10 +105,24 @@ def bem_estar():
     return render_template('bem_estar.html', title='Jacqueline Agostini - Bem-estar',
                            procedimentos_em_estar=procedimentos_em_estar)
 
-@pages.route('/agendamento')
-def pedido():
+@pages.route('/agendamento/<str:procedimento>')
+def agendamento(procedimento: str, cliente: Cliente):
 
-    if request.method == 'POST':
-        pass
+    form = ScheduleForm()
+
+    if form.validate_on_submit():
+
+        agendamento = Agendamento(
+            _id=uuid.uuid4().hex,
+            cliente=cliente,
+            procedimento=procedimento,
+            date=form.date.data,
+            time=form.time.data
+        )
+
+        if True:
+            flash(f'Agendamento de {agendamento.procedimento} para o dia {agendamento.date} às {agendamento.time}', 'success')
+        else:
+            flash('Esse horário já está reservado, gostaria de ver um outro dia e/ou horário?')
 
     return render_template('agendamento.html', title='Jacqueline Agostini - Agendamento')

@@ -1,41 +1,38 @@
+.form {
+    margin: 0 auto;
+    max-width: 30rem;
+    border: 3px solid var(--verde-escuro);
+    font-size: 1.2rem;
+
+    background-color: var(--verde-claro);
+
+    box-shadow: 0.75rem 0.75rem 0 -0.2rem var(--verde-escuro);
+
+    color: var(--bege-claro);
+    font-family: var(--font-link);
+}
 
 .form__container {
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 2.5rem 1.5rem 1.5rem 1.5rem;    
 }
 
-.form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1em;
-
-    padding: 1em 1em;
-
-    border: 3px solid var(--verde-escuro);
-    background: var(--verde-claro);
-    color: var(--bege-claro);
-
-}
-
-@media screen and (min-width: 800px){
-    .form {
-        width: 30vw;
-        height: 50vh;
+@media screen and (min-width: 30rem) {
+    .form__container {
+        padding-left: 2.5rem;
     }
 }
 
-label {
-    font-size: 1.5em;
-    color: var(--bege-claro);
-    text-align: center;
+.form__group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+}
+
+.form__label {
+    margin-bottom: 0.5rem;
 }
 
 .form__field {
-
     border: none;
 
     border-bottom: 3px solid var(--verde-escuro);
@@ -46,21 +43,70 @@ label {
     background: var(--bege-claro);
 }
 
-.form__submit {
-    border: none;
+
+
+.button--form {
+    margin: 2rem auto;
+    padding: 0.75rem 3rem;
+    
     width: 5em;
     height: 3em;
+    border: none;
     background-color: var(--bege-claro);
     color: var(--verde-escuro);
+    margin-bottom: 1em;
 
     border-radius: 50%;
+
+    
 }
 
-.form__submit:hover {
+.button--form:hover {
     font-weight: bold;
 }
 
+  
+.form__link {
+text-decoration: none;
+color: var(--bege-claro);
+}
+
+
+.form__error {
+margin-top: 0.5rem;
+}
+
+.form__error,
+.form__flash {
+display: block;
+padding: 0.5rem;
+color: var(--bege-claro);
+}
+
+.form__error,
+.form__flash--danger {
+background: orangered;
+}
+
+.form__flash {
+margin: 0.5rem;
+}
+
+.form__flash--success {
+background: green;
+}
+  
 .register__link {
-    color: inherit;
+
+    color: var(--bege-claro);
+}
+
+.register__text {
     text-align: center;
+    margin-bottom: 2em;
+}
+
+.form__button {
+    text-align: center;
+
 }

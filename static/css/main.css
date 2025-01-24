@@ -83,22 +83,6 @@ body {
     color: var(--marrom-escuro)
 }
 
-.wpp__link {
-    padding: 0.5em;
-    height: 3em;
-    color: var(--bege-claro);
-    background-color: var(--verde-claro);
-    border-radius: 50%;
-}
-
-.ig__link {
-    padding: 0.5em;
-    height: 3em;
-    color: var(--bege-claro);
-    background: var(--marrom-escuro);
-    border-radius: 50%;
-}
-
 .container__right--photo {
     border-radius: 10%;
     box-shadow: 0.5em 0.5em 1em var(--verde-claro);

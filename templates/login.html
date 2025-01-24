@@ -23,11 +23,11 @@
             {{ render_text_field(form.email) }}
             {{ render_text_field(form.password) }}
 
-            <div>
+            <div class="form__button">
                 {{ form.submit(class_="button button--form") }}
             </div>
         </div>
-                <p>Ainda não se cadastrou?<a class="register__link" href="{{ url_for('pages.register') }}"> Clique aqui!</a></p>
+                <p class='register__text'>Ainda não se cadastrou?<a class="register__link" href="{{ url_for('pages.register') }}"> Clique aqui!</a></p>
             </form>
         </div>
 </main>

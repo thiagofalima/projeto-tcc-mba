@@ -7,11 +7,12 @@ class Cliente:
     # Generated on Register
     _id: str
 
+    name: str
     email: str
     password: str
 
     # Generated on Register
-    date: datetime
+    register_date: datetime
 
 @dataclass
 class Procedimento:
@@ -31,5 +32,7 @@ class Agendamento:
 
     procedimento: Procedimento
 
-    date: datetime
+    date: datetime.date
+
+    time: datetime.time
 
