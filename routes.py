@@ -9,8 +9,12 @@ pages = Blueprint('pages', __name__,
                   template_folder='templates',
                   static_folder='static')
 
-@pages.route('/')
+@pages.route('/', methods=['GET', 'POST'])
 def home():
+
+    if request.method == 'POST':
+        return redirect(url_for('.agendamento'))
+
     return render_template('home.html', title='Jacqueline Agostini')
 
 users = {
@@ -105,8 +109,8 @@ def bem_estar():
     return render_template('bem_estar.html', title='Jacqueline Agostini - Bem-estar',
                            procedimentos_em_estar=procedimentos_em_estar)
 
-@pages.route('/agendamento/<str:procedimento>')
-def agendamento(procedimento: str, cliente: Cliente):
+@pages.route('/agendamento', methods=['GET', 'POST'])
+def agendamento():
 
     form = ScheduleForm()
 
@@ -114,8 +118,8 @@ def agendamento(procedimento: str, cliente: Cliente):
 
         agendamento = Agendamento(
             _id=uuid.uuid4().hex,
-            cliente=cliente,
-            procedimento=procedimento,
+            cliente=Cliente(),
+            procedimento=Procedimento(),
             date=form.date.data,
             time=form.time.data
         )
@@ -125,4 +129,4 @@ def agendamento(procedimento: str, cliente: Cliente):
         else:
             flash('Esse horário já está reservado, gostaria de ver um outro dia e/ou horário?')
 
-    return render_template('agendamento.html', title='Jacqueline Agostini - Agendamento')
+    return render_template('agendamento.html', title='Jacqueline Agostini - Agendamento', form=form)
