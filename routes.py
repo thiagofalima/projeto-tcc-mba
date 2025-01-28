@@ -4,6 +4,7 @@ import uuid
 from forms import RegisterForm, LoginForm, ScheduleForm
 from models import Cliente, Agendamento, Procedimento
 import datetime
+from dataclasses import asdict
 
 pages = Blueprint('pages', __name__, 
                   template_folder='templates',
@@ -38,7 +39,7 @@ def register():
             register_date=datetime.datetime.now()
         )
 
-        # DB insertion here
+        current_app.db.clientes.insert_one(asdict(cliente))
 
         flash('Cadastro realizado com sucesso!', 'success')
         return redirect(url_for('pages.login'))
