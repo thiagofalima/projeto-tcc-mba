@@ -138,3 +138,9 @@ def agendamento():
 
 
     return render_template('agendamento.html', title='Jacqueline Agostini - Agendamento', form=form)
+
+@pages.route('/logout')
+def logout():
+    session.clear()
+
+    return redirect(url_for('.login'))

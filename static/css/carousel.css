@@ -3,7 +3,7 @@
     background: var(--verde-escuro);
     font-family: var(--font-link);
 
-    height: 10em;
+    height: 20em;
 
 
 
@@ -12,7 +12,6 @@
 .carousel-inner {
     display: flex;
     flex-direction: column;
-
 }
 
 .carousel-control-next-icon {
@@ -24,13 +23,32 @@
 }
 
 .feedback__cliente--nome
-{
+{   
+    position: absolute;
+    top: 2em;
+
     color: var(--bege-claro);
     font-size: 2em;
 }
 
 .feedback__cliente--texto {
+    position: relative;
+    top: 5em;
+
+    font-size: 1.5em;
+
     color: var(--bege-claro);
-    
     margin-bottom: 4em;
+}
+
+.first {
+    left: 0;
+}
+
+.second {
+    left: 40%;
+}
+
+.third {
+    right: 0;
 }
