@@ -202,7 +202,17 @@ body {
     text-align: center;
 }
 
-.footer
+.footer__home {
+    width: 100%;
+    position: relative;
+    bottom: 0%;
+
+    padding: 1rem 0;
+
+    background: var(--verde-escuro);
+    color: var(--bege-claro);
+    text-align: center;
+}
 
 .container__feedbacks {
     margin: 1em auto;
