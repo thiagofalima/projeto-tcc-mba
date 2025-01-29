@@ -20,6 +20,7 @@
         <div class="form__container">
             {{ form.hidden_tag() }}
 
+            {{ render_text_field(form.name) }}
             {{ render_text_field(form.procedure_name) }}
             {{ render_text_field(form.date) }}
             {{ render_text_field(form.time) }}

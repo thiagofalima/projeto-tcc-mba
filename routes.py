@@ -36,7 +36,7 @@ def register():
             name=form.name.data,
             email=form.email.data,
             password=pbkdf2_sha256.hash(form.password.data),
-            register_date=datetime.datetime.now()
+            register_date=datetime.datetime.now().isoformat()
         )
 
         current_app.db.clientes.insert_one(asdict(cliente))
@@ -58,11 +58,10 @@ def login():
 
     if form.validate_on_submit():
         # DB verification
-        cliente_data = {}
+        cliente_data = current_app.db.clientes.find_one({"email": form.email.data})
         if not cliente_data:
             flash('Usuário ou senha incorretos!', 'danger')
             return redirect(url_for('pages.login'))
-
         cliente = Cliente(**cliente_data)
 
         if cliente and pbkdf2_sha256.verify(form.password.data, cliente.password):
@@ -115,19 +114,27 @@ def agendamento():
 
     form = ScheduleForm()
 
-    if form.validate_on_submit():
+    if form.is_submitted():
 
         agendamento = Agendamento(
             _id=uuid.uuid4().hex,
-            cliente=Cliente(),
-            procedimento=Procedimento(),
+            cliente=form.name.data,
+            procedimento=form.procedure_name.data,
             date=form.date.data,
             time=form.time.data
         )
 
-        if True:
-            flash(f'Agendamento de {agendamento.procedimento} para o dia {agendamento.date} às {agendamento.time}', 'success')
-        else:
-            flash('Esse horário já está reservado, gostaria de ver um outro dia e/ou horário?')
+        agendamento.convert_date()
+        agendamento.convert_time()
+
+        current_app.db.agendamentos.insert_one(asdict(agendamento))
+
+
+        # print(type(form.date.data))
+        # print(type(form.time.data))
+
+        flash(f'Agendamento feito com sucesso!', 'success')
+        flash(f'{agendamento.procedimento} para o dia {agendamento.date} às {agendamento.time}', 'success')
+
 
     return render_template('agendamento.html', title='Jacqueline Agostini - Agendamento', form=form)

@@ -28,11 +28,17 @@ class Agendamento:
 
     _id: str
 
-    cliente: Cliente
+    cliente: str
 
-    procedimento: Procedimento
+    procedimento: str
 
     date: datetime.date
 
     time: datetime.time
+
+    def convert_date(self):
+        self.date = self.date.isoformat()
+
+    def convert_time(self):
+        self.time = self.time.isoformat()
 

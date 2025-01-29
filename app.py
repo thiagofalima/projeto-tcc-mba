@@ -9,7 +9,7 @@ def create_app():
     app = Flask(__name__)
 
     app.config["SECRET_KEY"] = 'ydDwtAeEJZqhmCHuZA9RPNQXPgsI1cnnzYOBDuXHxFk'
-    app.config["MONGODB_URI"] = os.environ.get("MONGODB_URI")
+    app.config["MONGODB_URI"] = 'mongodb+srv://thiagofalima:HFClyoEQ6rUn7jfq@cluster0.n8n8d.mongodb.net/'
     app.db = MongoClient(app.config["MONGODB_URI"]).projeto_tcc
 
 

@@ -26,13 +26,15 @@ class LoginForm(FlaskForm):
 
 class ScheduleForm(FlaskForm):
 
+    name = StringField('Nome', validators=[InputRequired()])
+
     procedure_name = StringField('Procedimento', validators=[InputRequired()])
 
     date = DateField('Dia', validators=[InputRequired(),
-                                         NumberRange(min=datetime.date.today(), message=f"Por favor, informe uma data do {datetime.date.today()} em diante.")])
+                                         NumberRange(min=10, message=f"Por favor, informe uma data do {datetime.date.today()} em diante.")])
     time = TimeField('Horário', validators=[InputRequired(),
-                                            NumberRange(min=datetime.time(8),
-                                                        max=datetime.time(18),
+                                            NumberRange(min=8,
+                                                        max=18,
                                                         message='Por favor, informe um horário entre 08:00 - 17:00')])
     submit = SubmitField('Agendar')
 
