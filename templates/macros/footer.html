@@ -1,5 +1,5 @@
 {% macro footer() %}
-<footer class="footer">
+<footer class="footer {{ 'footer__home' if request.path == url_for('pages.home') }}">
     <small>Copyright &copy;2025. Jacqueline Agostini Estética. Todos os direitos reservados</small>
 </footer>
 {% endmacro %}

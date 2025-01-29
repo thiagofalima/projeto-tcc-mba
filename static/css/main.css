@@ -150,6 +150,9 @@ body {
     align-items: center;
     font-family: inherit;
     text-align: center;
+
+    line-height: 1.5em;
+    font-size: 1.25em;
 }
 
 .queridinhos__link {
@@ -198,6 +201,8 @@ body {
     color: var(--bege-claro);
     text-align: center;
 }
+
+.footer
 
 .container__feedbacks {
     margin: 1em auto;

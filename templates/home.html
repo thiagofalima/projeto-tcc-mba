@@ -30,14 +30,14 @@
           <li class="conhecer__items--item">Lash Lifting</li>
         </ul>
         <ul class="conhecer__items"><a href="{{ url_for('pages.estetica') }}" class="conhecer__items--link">Estética</a>
-          <li class="conhecer__items--item primeiro">Design de Sobrancelhas</li>
-          <li class="conhecer__items--item">Brow Lamination</li>
-          <li class="conhecer__items--item">Lash Lifting</li>
+          <li class="conhecer__items--item primeiro">Depilação a Laser</li>
+          <li class="conhecer__items--item">Limpeza de Pele</li>
+          <li class="conhecer__items--item">Microagulhamento</li>
         </ul>
-        <ul class="conhecer__items"><a href="{{ url_for('pages.bem_estar') }}" class="conhecer__items--link">Bem-Estar</a>
-          <li class="conhecer__items--item primeiro">Design de Sobrancelhas</li>
-          <li class="conhecer__items--item">Brow Lamination</li>
-          <li class="conhecer__items--item">Lash Lifting</li>
+        <ul class="conhecer__items"><a href="{{ url_for('pages.beleza') }}" class="conhecer__items--link">Bem-Estar</a>
+          <li class="conhecer__items--item primeiro">Drenagem Linfática</li>
+          <li class="conhecer__items--item">Massagem Relaxante</li>
+          <li class="conhecer__items--item">Reflexologia</li>
         </ul>
 
       </div>
@@ -58,18 +58,16 @@
     </h3>
 
     <div class="container__queridinhos--items">
-      {% for i in ['Limpeza de Pele', 'Depilação', 'Drenagem'] %}
+      {% for nome, descricao in queridinhos.items() %}
       <a href="" class="queridinhos__link">
-        <h4 class="queridinhos__titles">{{ i }}</h4>
+        <h4 class="queridinhos__titles">{{ nome }}</h4>
         <img src="{{ url_for('static', filename='assets/logotipo.png') }}" alt="">
         <p class="queridinhos__link--text">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+          {{ descricao }}
         </p>
-        <form action="agendamento" name='agendamento' method='POST'>
+        <form action="agendamento" name='agendamento' method='GET'>
           <input type="submit" class="queridinhos__link--button" placeholder="Agendar">
         </form>
-          Ver
-        </button>
         {% endfor %}
       </a>
     </div>
