@@ -43,7 +43,6 @@
       </div>
 
     </div>
-
     <div class="container__right">
       <img src="{{ url_for('static', filename='assets/foto_jacque.jpeg') }}" alt="Foto Da Jacqueline Agostini de Jaleco"
         class="container__right--photo">
@@ -66,7 +65,7 @@
           {{ descricao }}
         </p>
         <form action="agendamento" name='agendamento' method='GET'>
-          <input type="submit" class="queridinhos__link--button" placeholder="Agendar">
+          <button type="submit" class="queridinhos__link--button" placeholder="Agendar">Agendar</button>
         </form>
         {% endfor %}
       </a>
