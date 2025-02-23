@@ -15,9 +15,9 @@
             <p class="queridinhos__link--text">
                 {{ descricao }}
             </p>
-            <button class="queridinhos__link--button">
-            Agendar
-            </button>
+            <form action="agendamento" name='agendamento' method='GET'>
+                <button type="submit" class="queridinhos__link--button" placeholder="Agendar">Agendar</button>
+            </form>
             {% endfor %}
         </a>
         </div>
